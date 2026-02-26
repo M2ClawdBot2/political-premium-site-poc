@@ -15,12 +15,53 @@ img{max-width:100%}
 
 [data-animate]{
   opacity:0;
-  transform:translateY(16px);
+  transform:translateY(18px) scale(0.995);
   transition:opacity 700ms ease, transform 700ms ease;
+  will-change: transform, opacity;
 }
-[data-animate].in-view{opacity:1;transform:translateY(0)}
+[data-animate].in-view{opacity:1;transform:translateY(0) scale(1)}
 
-.hero-copy [data-animate]{transition-delay:100ms}
+.hero{
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-20% -10% auto -10%;
+  height:70%;
+  background:radial-gradient(60% 60% at 30% 30%, rgba(212,176,106,0.16), transparent 60%);
+  transform:translateY(var(--glow-shift,0px));
+  transition:transform 300ms ease;
+  pointer-events:none;
+}
+
+.hero-copy [data-animate]{transition-delay:120ms}
+
+.float-card{
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.btn-primary{
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary::after{
+  content:"";
+  position:absolute;
+  inset:-60% auto -60% -40%;
+  width:40%;
+  background:linear-gradient(120deg, rgba(255,255,255,0.0), rgba(255,255,255,0.4), rgba(255,255,255,0.0));
+  transform:translateX(-120%) rotate(20deg);
+}
+.btn-primary:hover::after{
+  transition:transform 700ms ease;
+  transform:translateX(240%) rotate(20deg);
+}
 .nav{position:sticky;top:0;background:rgba(13,15,18,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:10}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
 .brand{font-weight:600;letter-spacing:.4px}
@@ -41,6 +82,7 @@ h1{font-family:Fraunces,serif;font-size:48px;line-height:1.05;margin:16px 0}
 .metric{display:block;font-weight:700;font-size:20px}
 .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .hero-card{background:var(--card);border:1px solid var(--border);padding:28px;border-radius:12px}
+.hero-card.float-card{box-shadow:0 24px 70px rgba(0,0,0,0.35)}
 .card-label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
 .section{padding:72px 0}
 .section-dark{background:var(--bg-light)}

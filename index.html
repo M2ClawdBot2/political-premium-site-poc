@@ -25,9 +25,9 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="container hero-grid">
-        <div class="hero-copy" data-animate>
+        <div class="hero-copy" data-animate data-parallax="0.15">
           <p class="eyebrow">America by design — civic leadership with results</p>
           <h1>Principled policy. Proven outcomes. A campaign built for the next decade.</h1>
           <p class="lead">We organize, advocate, and deliver measurable wins for voters who demand clarity, competence, and courage.</p>
@@ -41,7 +41,7 @@
             <div><span class="metric">98%</span><span class="label">voter response rate</span></div>
           </div>
         </div>
-        <div class="hero-card" data-animate>
+        <div class="hero-card float-card" data-animate data-parallax="0.25">
           <div class="card-label">Next Event</div>
           <h3>National Civic Forum</h3>
           <p>March 22 · 7:00 PM · Washington, DC</p>
@@ -170,6 +170,19 @@
     }, { threshold: 0.15 });
 
     animated.forEach(el => reveal.observe(el));
+
+    const parallaxEls = document.querySelectorAll('[data-parallax]');
+    const hero = document.getElementById('hero');
+    const onScroll = () => {
+      const y = window.scrollY;
+      parallaxEls.forEach(el => {
+        const speed = parseFloat(el.dataset.parallax || '0.15');
+        el.style.transform = `translateY(${y * speed * -0.2}px)`;
+      });
+      if (hero) hero.style.setProperty('--glow-shift', `${Math.min(y * 0.12, 60)}px`);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   </script>
 </body>
 </html>
