@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vanguard Civic Alliance — Premium Political Website</title>
+  <meta name="description" content="Premium political campaign website concept with trust-first design, clear hierarchy, and conversion-focused layout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Vanguard Civic Alliance</div>
+      <nav class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#proof">Proof</a>
+        <a href="#platform">Platform</a>
+        <a href="#donate" class="btn btn-primary">Donate</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">America by design — civic leadership with results</p>
+          <h1>Principled policy. Proven outcomes. A campaign built for the next decade.</h1>
+          <p class="lead">We organize, advocate, and deliver measurable wins for voters who demand clarity, competence, and courage.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#donate">Contribute Today</a>
+            <a class="btn btn-secondary" href="#platform">Read the Platform</a>
+          </div>
+          <div class="trust-row">
+            <div><span class="metric">$42.1M</span><span class="label">raised to date</span></div>
+            <div><span class="metric">312</span><span class="label">community wins</span></div>
+            <div><span class="metric">98%</span><span class="label">voter response rate</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-label">Next Event</div>
+          <h3>National Civic Forum</h3>
+          <p>March 22 · 7:00 PM · Washington, DC</p>
+          <a class="btn btn-tertiary" href="#donate">Reserve Seat</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="section">
+      <div class="container two-col">
+        <div>
+          <h2>Mission built on trust, transparency, and delivery.</h2>
+          <p>We combine bold policy with operational rigor. Every initiative is designed, tested, and published with clear outcomes, timelines, and accountability.</p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="metric">50</div>
+            <div class="label">states organized</div>
+          </div>
+          <div class="stat">
+            <div class="metric">1,200+</div>
+            <div class="label">local coalitions</div>
+          </div>
+          <div class="stat">
+            <div class="metric">4.8★</div>
+            <div class="label">public trust score</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="section section-dark">
+      <div class="container">
+        <h2>Proof, not promises.</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Economic Security</h3>
+            <p>Delivered 28% reduction in permit delays across 17 municipalities.</p>
+          </article>
+          <article class="card">
+            <h3>Veterans Access</h3>
+            <p>Expanded healthcare coverage for 41,000+ families.</p>
+          </article>
+          <article class="card">
+            <h3>Public Safety</h3>
+            <p>Funded 2,500+ community-led safety initiatives nationwide.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform" class="section">
+      <div class="container">
+        <h2>Platform</h2>
+        <div class="platform">
+          <div>
+            <h4>1. Fiscal Discipline</h4>
+            <p>Transparent budgets, measurable outcomes, and zero waste.</p>
+          </div>
+          <div>
+            <h4>2. Infrastructure Renewal</h4>
+            <p>Modern systems, faster services, and resilient cities.</p>
+          </div>
+          <div>
+            <h4>3. Civic Innovation</h4>
+            <p>Design-led governance that makes public services work.</p>
+          </div>
+          <div>
+            <h4>4. Constitutional Rights</h4>
+            <p>Defend speech and due process with clarity and fairness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="donate" class="section cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>Stand with a campaign that delivers.</h2>
+          <p>Contributions fund civic events, policy research, and voter outreach.</p>
+        </div>
+        <form class="donate-form" aria-label="Donation form">
+          <label>
+            Amount
+            <select>
+              <option>$25</option>
+              <option>$50</option>
+              <option>$100</option>
+              <option>$250</option>
+            </select>
+          </label>
+          <label>
+            Email
+            <input type="email" placeholder="you@email.com" required />
+          </label>
+          <button class="btn btn-primary" type="submit">Donate Securely</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 Vanguard Civic Alliance</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+</body>
+</html>
