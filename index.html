@@ -27,7 +27,7 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" data-animate>
           <p class="eyebrow">America by design — civic leadership with results</p>
           <h1>Principled policy. Proven outcomes. A campaign built for the next decade.</h1>
           <p class="lead">We organize, advocate, and deliver measurable wins for voters who demand clarity, competence, and courage.</p>
@@ -41,7 +41,7 @@
             <div><span class="metric">98%</span><span class="label">voter response rate</span></div>
           </div>
         </div>
-        <div class="hero-card">
+        <div class="hero-card" data-animate>
           <div class="card-label">Next Event</div>
           <h3>National Civic Forum</h3>
           <p>March 22 · 7:00 PM · Washington, DC</p>
@@ -51,7 +51,7 @@
     </section>
 
     <section id="mission" class="section">
-      <div class="container two-col">
+      <div class="container two-col" data-animate>
         <div>
           <h2>Mission built on trust, transparency, and delivery.</h2>
           <p>We combine bold policy with operational rigor. Every initiative is designed, tested, and published with clear outcomes, timelines, and accountability.</p>
@@ -74,7 +74,7 @@
     </section>
 
     <section id="proof" class="section section-dark">
-      <div class="container">
+      <div class="container" data-animate>
         <h2>Proof, not promises.</h2>
         <div class="cards">
           <article class="card">
@@ -94,7 +94,7 @@
     </section>
 
     <section id="platform" class="section">
-      <div class="container">
+      <div class="container" data-animate>
         <h2>Platform</h2>
         <div class="platform">
           <div>
@@ -118,7 +118,7 @@
     </section>
 
     <section id="donate" class="section cta">
-      <div class="container cta-inner">
+      <div class="container cta-inner" data-animate>
         <div>
           <h2>Stand with a campaign that delivers.</h2>
           <p>Contributions fund civic events, policy research, and voter outreach.</p>
@@ -158,6 +158,18 @@
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+    const animated = document.querySelectorAll('[data-animate]');
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          reveal.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    animated.forEach(el => reveal.observe(el));
   </script>
 </body>
 </html>
